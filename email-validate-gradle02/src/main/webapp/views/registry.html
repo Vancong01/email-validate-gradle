@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table style="width: 100%">
+    <tr>
+        <td style="text-align: center;">LOGO</td>
+        <td style="text-align: center;"><h1>EDIT/REGISTER EMPLOYEED</h1></td>
+    </tr>
+</table>
+<form th:action="@{/registryHandle} " th:object="${registryForm}" method="post">
+    <table align="center" >
+        <tr>
+            <td>Employee Code</td>
+            <td><input type="text" th:field="*{employeeCode}" /></td>
+        </tr>
+        <tr>
+            <td>Employee name</td>
+            <td><input type="text" th:field="*{employeeName}" /></td>
+        </tr>
+        <tr>
+            <td>Employee First Name</td>
+            <td><input type="text" th:field="*{firstName}" /></td>
+        </tr>
+        <tr>
+            <td>Employee Last Name</td>
+            <td><input type="text" th:field="*{lastName}" /></td>
+        </tr>
+        <tr>
+            <td>Join Date</td>
+            <td><input type="date" th:field="*{joinDate}" /></td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <td><select th:field="*{levelSelect}" >
+                <option th:each="i:*{level}" th:value="${i.skillLevel}"
+                        th:text="${i.levelName}"></option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td><button type="submit">Submit</button></td>
+            <td><button type="reset">Reset</button></td>
+        </tr>
+    </table>
+</form>
+<!-- <ul th:each="level : ${levels}">
+    <li th:text="${level}">1</li>
+</ul> -->
+</body>
+</html>
